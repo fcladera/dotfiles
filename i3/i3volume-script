@@ -1,0 +1,31 @@
+#!/bin/bash
+
+case $1 in
+
+  "up")
+    VOLUME='+5%'
+    for SINK in `pacmd list-sinks | grep 'index:' | cut -b12-`
+    do
+      pactl set-sink-volume $SINK $VOLUME
+    done
+    ;;
+
+  "down")
+    VOLUME='-5%'
+    for SINK in `pacmd list-sinks | grep 'index:' | cut -b12-`
+    do
+      pactl set-sink-volume $SINK $VOLUME
+    done
+    ;;
+
+  "mute")
+    for SINK in `pacmd list-sinks | grep 'index:' | cut -b12-`
+    do
+      pactl set-sink-mute $SINK toggle
+    done
+    ;;
+
+  *)
+    ;;
+esac
+
