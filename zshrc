@@ -143,3 +143,4 @@ alias yolo='git commit -m "$(curl -s http://whatthecommit.com/index.txt)"'
 plugins=(git z gitfast git-extras colored-man-pages colorize pass taskwarrior tmux fzf sbt alias-finder thefuck zsh-autosuggestions zsh-history-substring-search)
 source $ZSH/oh-my-zsh.sh
 autoload -U compinit && compinit
+setopt magicequalsubst
